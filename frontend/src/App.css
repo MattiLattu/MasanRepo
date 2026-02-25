@@ -238,12 +238,13 @@
   letter-spacing: 0.5px;
 }
 
-.badge-electronics { background: #ede9fe; color: #6d28d9; }
-.badge-clothing { background: #fce7f3; color: #be185d; }
-.badge-food { background: #dcfce7; color: #15803d; }
-.badge-home { background: #fef3c7; color: #b45309; }
-.badge-sports { background: #dbeafe; color: #1d4ed8; }
-.badge-default { background: #f1f5f9; color: #475569; }
+.badge-running  { background: #ede9fe; color: #6d28d9; }
+.badge-casual   { background: #fce7f3; color: #be185d; }
+.badge-formal   { background: #e0e7ff; color: #3730a3; }
+.badge-boots    { background: #fef3c7; color: #b45309; }
+.badge-sandals  { background: #dcfce7; color: #15803d; }
+.badge-sports   { background: #dbeafe; color: #1d4ed8; }
+.badge-default  { background: #f1f5f9; color: #475569; }
 
 .stock-badge {
   padding: 4px 10px;

@@ -1,14 +1,15 @@
 import { useState, useEffect, useCallback } from 'react'
 import './App.css'
 
-const CATEGORIES = ['Electronics', 'Clothing', 'Food', 'Home & Garden', 'Sports']
+const CATEGORIES = ['Running', 'Casual', 'Formal', 'Boots', 'Sandals', 'Sports']
 
 function getCategoryClass(category) {
   const map = {
-    'Electronics': 'badge-electronics',
-    'Clothing': 'badge-clothing',
-    'Food': 'badge-food',
-    'Home & Garden': 'badge-home',
+    'Running': 'badge-running',
+    'Casual': 'badge-casual',
+    'Formal': 'badge-formal',
+    'Boots': 'badge-boots',
+    'Sandals': 'badge-sandals',
     'Sports': 'badge-sports',
   }
   return map[category] || 'badge-default'
@@ -28,7 +29,7 @@ function Toast({ toasts }) {
 }
 
 function AddProductModal({ onClose, onAdd }) {
-  const [form, setForm] = useState({ name: '', description: '', price: '', quantity: '0', category: 'Electronics' })
+  const [form, setForm] = useState({ name: '', description: '', price: '', quantity: '0', category: 'Running' })
   const [loading, setLoading] = useState(false)
 
   const handleChange = e => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -54,12 +55,12 @@ function AddProductModal({ onClose, onAdd }) {
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="modal">
         <h2 className="modal-title">
-          <span>📦</span> Add New Product
+          <span>👟</span> Add New Shoe
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="form-label">Product Name <span>*</span></label>
-            <input className="form-input" name="name" value={form.name} onChange={handleChange} required placeholder="e.g. Wireless Mouse" />
+            <input className="form-input" name="name" value={form.name} onChange={handleChange} required placeholder="e.g. Air Max Runner" />
           </div>
           <div className="form-group">
             <label className="form-label">Description</label>
@@ -219,10 +220,10 @@ export default function App() {
       <header className="header">
         <div className="header-inner">
           <div className="header-left">
-            <span className="header-icon">📦</span>
+            <span className="header-icon">👟</span>
             <div>
-              <div className="header-title">Inventory Manager</div>
-              <div className="header-subtitle">Track and manage your products</div>
+              <div className="header-title">SoleStock</div>
+              <div className="header-subtitle">Shoe inventory management</div>
             </div>
           </div>
           <div className="product-count-badge">{totalProducts} Products</div>
@@ -277,7 +278,7 @@ export default function App() {
             {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
           </select>
           <button className="add-btn" onClick={() => setShowModal(true)}>
-            + Add Product
+            + Add Shoe
           </button>
         </div>
 
@@ -293,14 +294,14 @@ export default function App() {
             </div>
           ) : filtered.length === 0 ? (
             <div className="empty-state">
-              <div className="empty-icon">{search || categoryFilter ? '🔍' : '📦'}</div>
+              <div className="empty-icon">{search || categoryFilter ? '🔍' : '👟'}</div>
               <div className="empty-title">
-                {search || categoryFilter ? 'No products found' : 'No products yet'}
+                {search || categoryFilter ? 'No shoes found' : 'No shoes yet'}
               </div>
               <div className="empty-subtitle">
                 {search || categoryFilter
                   ? 'Try adjusting your search or filter'
-                  : 'Click "Add Product" to get started'}
+                  : 'Click "Add Shoe" to get started'}
               </div>
             </div>
           ) : (
